@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import seaborn as sns
+import seaborn as sb
 import matplotlib.pyplot as plt 
 
 st.set_page_config(
@@ -23,9 +23,9 @@ st.write(df)
 st.write('## Visualizations')
 
 # Countplot for Gender
-def save_plot_as_image(figure, filename):
-    figure.savefig(filename, bbox_inches='tight')
-    st.image(filename)
+def save_plot_as_image(figure, digipodium):
+    figure.savefig(digipodium, bbox_inches='tight')
+    st.image(digipodium)
 
 # Countplot for Gender
 st.subheader('Gender Distribution')
@@ -52,12 +52,12 @@ def save_seaborn_plot_as_image(figure, filename):
     st.image(filename)
 
 st.subheader('Marital Status Distribution')
-marital_status_countplot = sns.countplot(data=df, x='Marital_Status')
+marital_status_countplot = sb.countplot(data=df, x='Marital_Status')
 save_seaborn_plot_as_image(marital_status_countplot.get_figure(), 'marital_status_distribution.png')
 
 # Marital Status Distribution
 st.subheader('Marital Status Distribution')
-marital_status_countplot = sns.countplot(data=df, x='Marital_Status')
+marital_status_countplot = sb.countplot(data=df, x='Marital_Status')
 save_seaborn_plot_as_image(marital_status_countplot.get_figure(), 'marital_status_distribution.png')
 
 # Marital Status vs. Amount with Gender hue
@@ -68,7 +68,7 @@ st.bar_chart(marital_status_vs_amount.set_index('Marital_Status')['Amount'])
 # Occupation Distribution
 st.subheader('Occupation Distribution')
 plt.figure(figsize=(19, 5))
-occupation_countplot = sns.countplot(data=df, x='Occupation')
+occupation_countplot = sb.countplot(data=df, x='Occupation')
 save_seaborn_plot_as_image(occupation_countplot.get_figure(), 'occupation_distribution.png')
 
 # Top 10 Most Sold Products
