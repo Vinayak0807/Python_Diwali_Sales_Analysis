@@ -47,9 +47,9 @@ st.subheader('State-wise Total Sales/Amount')
 state_sales = df.groupby(['State'], as_index=False)['Amount'].sum().sort_values(by='Amount', ascending=False)
 st.bar_chart(state_sales.set_index('State')['Amount'])
 
-def save_seaborn_plot_as_image(figure, filename):
-    figure.savefig(filename, bbox_inches='tight')
-    st.image(filename)
+def save_seaborn_plot_as_image(figure, digipodium):
+    figure.savefig(digipodium, bbox_inches='tight')
+    st.image(digipodium)
 
 st.subheader('Marital Status Distribution')
 marital_status_countplot = sb.countplot(data=df, x='Marital_Status')
