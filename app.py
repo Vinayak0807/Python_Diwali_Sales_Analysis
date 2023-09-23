@@ -1,8 +1,8 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import seaborn as sb
 import matplotlib.pyplot as plt 
+import seaborn as sb
 
 st.set_page_config(
     page_icon="🧊",
@@ -26,15 +26,18 @@ st.write('## Visualizations')
 def save_plot_as_image(figure, digipodium):
     figure.savefig(digipodium, bbox_inches='tight')
     st.image(digipodium)
+def save_seaborn_plot_as_image(figure, digipodium):
+    figure.savefig(digipodium, bbox_inches='tight')
+    st.image(digipodium)
 
 # Countplot for Gender
 st.subheader('Gender Distribution')
-gender_countplot = sns.countplot(x='Gender', data=df)
+gender_countplot = sb.countplot(x='Gender', data=df)
 save_plot_as_image(gender_countplot.get_figure(), 'gender_distribution.png')
 
 # Countplot for Age Group
 st.subheader('Age Group Distribution')
-age_group_countplot = sns.countplot(data=df, x='Age Group', hue='Gender')
+age_group_countplot = sb.countplot(data=df, x='Age Group', hue='Gender')
 save_plot_as_image(age_group_countplot.get_figure(), 'age_group_distribution.png')
 
 # State-wise Orders
@@ -47,9 +50,7 @@ st.subheader('State-wise Total Sales/Amount')
 state_sales = df.groupby(['State'], as_index=False)['Amount'].sum().sort_values(by='Amount', ascending=False)
 st.bar_chart(state_sales.set_index('State')['Amount'])
 
-def save_seaborn_plot_as_image(figure, digipodium):
-    figure.savefig(digipodium, bbox_inches='tight')
-    st.image(digipodium)
+
 
 st.subheader('Marital Status Distribution')
 marital_status_countplot = sb.countplot(data=df, x='Marital_Status')
