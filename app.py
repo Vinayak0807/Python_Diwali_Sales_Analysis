@@ -1,8 +1,8 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt 
 import seaborn as sb
+import matplotlib.pyplot as plt 
 
 st.set_page_config(
     page_icon="🧊",
@@ -109,4 +109,5 @@ st.write('The top-selling products have higher order quantities.')
 st.write('Identifying these products can help in optimizing inventory and marketing efforts.')
 st.write('---')
 st.write('Developed by Vinayak Shukla')
+
 
