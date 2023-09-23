@@ -18,7 +18,7 @@ st.title('Diwali Sales Analysis')
 # Display data summary
 st.write('## Data Summary')
 st.write('Shape of the dataset:', df.shape)
-st.write(df.head())
+st.write(df)
 
 # Add interactive visualizations using Streamlit components
 st.write('## Visualizations')
@@ -76,5 +76,37 @@ save_seaborn_plot_as_image(occupation_countplot.get_figure(), 'occupation_distri
 st.subheader('Top 10 Most Sold Products')
 top_10_products = df.groupby(['Product_Category'], as_index=False)['Orders'].sum().sort_values(by='Orders', ascending=False).head(10)
 st.bar_chart(top_10_products.set_index('Product_Category')['Orders'])
-# You can add more visualizations or interactivity as needed
+st.write('## Conclusions and Insights')
+
+# Gender Distribution Conclusion
+st.write('### Gender Distribution:')
+st.write('There are more female buyers compared to males, indicating a higher female presence in the customer base.')
+st.write('Female buyers have a significant impact on sales.')
+
+# Age Group Distribution Conclusion
+st.write('### Age Group Distribution:')
+st.write('The majority of buyers belong to the 26-35 age group, particularly females.')
+st.write('This age group is the most active in terms of making purchases.')
+
+# State-wise Orders and Total Sales Conclusion
+st.write('### State-wise Orders and Total Sales:')
+st.write('Uttar Pradesh, Maharashtra, and Karnataka are the top states in terms of both order quantity and total sales.')
+st.write('These states have a higher market share and contribute significantly to overall sales.')
+
+# Marital Status Distribution Conclusion
+st.write('### Marital Status Distribution:')
+st.write('Most buyers are married, especially women.')
+st.write('Married buyers, particularly married women, make up a substantial portion of the customer base.')
+
+# Occupation Distribution Conclusion
+st.write('### Occupation Distribution:')
+st.write('The top occupations of buyers are in IT, Healthcare, and Aviation sectors.')
+st.write('These sectors have a higher number of buyers, possibly due to higher disposable income.')
+
+# Top 10 Most Sold Products Conclusion
+st.write('### Top 10 Most Sold Products:')
+st.write('The top-selling products have higher order quantities.')
+st.write('Identifying these products can help in optimizing inventory and marketing efforts.')
+st.write('---')
+st.write('Developed by Vinayak Shukla')
 
