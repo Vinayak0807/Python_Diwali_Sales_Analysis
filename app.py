@@ -9,7 +9,7 @@ st.set_page_config(
     page_title="Diwali sales analysis",
     layout="wide")
 # Load your dataset
-df = pd.read_csv('Python_Diwali_Sales_Analysis-main/sales.csv', encoding='unicode_escape')
+df = pd.read_csv('sales.csv', encoding='unicode_escape')
 
 # Add Streamlit app title and header
 st.title('Diwali Sales Analysis')
